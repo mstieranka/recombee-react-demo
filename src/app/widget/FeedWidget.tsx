@@ -32,6 +32,7 @@ const SearchFeedWidget = ({ userId }: { userId: string | null }) => {
     () =>
       ({ count }) => {
         return new SearchItems(widgetUserId, query || "", count, {
+          // TODO: Create scenario in Recombee Admin UI, otherwise setting this parameter returns an error
           // scenario: "search-items",
           cascadeCreate: true,
           returnProperties: true,

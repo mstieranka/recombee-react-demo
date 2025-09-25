@@ -33,7 +33,8 @@ const SearchWidget = ({ userId }: { userId: string | null }) => {
         return new Batch(
           [
             new SearchItems(widgetUserId, searchQuery, 5, {
-              //   scenario: "search-items",
+              // TODO: Create scenario in Recombee Admin UI, otherwise setting this parameter returns an error
+              // scenario: "search-items",
               cascadeCreate: true,
               returnProperties: true,
             }),

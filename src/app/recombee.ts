@@ -10,10 +10,10 @@ if (!process.env.NEXT_PUBLIC_RECOMBEE_REGION) {
   throw new Error("Missing NEXT_PUBLIC_RECOMBEE_REGION env var");
 }
 
-const DATABASE_ID = process.env.NEXT_PUBLIC_RECOMBEE_DATABASE_ID;
-const PUBLIC_TOKEN = process.env.NEXT_PUBLIC_RECOMBEE_PUBLIC_TOKEN;
-const REGION = process.env.NEXT_PUBLIC_RECOMBEE_REGION;
-
-export const apiClient = new ApiClient(DATABASE_ID, PUBLIC_TOKEN, {
-  region: REGION,
-});
+export const apiClient = new ApiClient(
+  process.env.NEXT_PUBLIC_RECOMBEE_DATABASE_ID,
+  process.env.NEXT_PUBLIC_RECOMBEE_PUBLIC_TOKEN,
+  {
+    region: process.env.NEXT_PUBLIC_RECOMBEE_REGION,
+  },
+);
