@@ -12,7 +12,7 @@ It is also possible to combine the two approaches (e.g. use the Feed Widget, but
 To upload your catalog, you can use `upload-catalog.js` as inspiration. Make sure to create all required properties in the Admin UI beforehand. See the [Recombee documentation](https://docs.recombee.com/getting_started#getting-started-catalog-sdk) for more details.
 
 > [!NOTE]
-> In general, we recommend that you read the [Getting Started](https://docs.recombee.com/getting_started#getting-started) page before going through this demo or whenever you feel like there's something that you don't fully understand.
+> In general, we recommend that you read the [Getting Started](https://docs.recombee.com/getting_started#getting-started) page before going through this demo or whenever you feel like there's something that you don't fully understand. Also see the [About](#about) section of this README for links to the documentation of all relevant SDKs.
 
 ## Getting Started
 
