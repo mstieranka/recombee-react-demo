@@ -20,18 +20,18 @@ export async function uploadCatalog() {
     { region: process.env.NEXT_PUBLIC_RECOMBEE_REGION },
   );
 
-  // Remove items that are no longer present in the catalog
+  // Mark items that are no longer present in the catalog as hidden
   const existingItems = await recombeeClient.send(new requests.ListItems());
-  const itemsToDelete = existingItems.filter(
+  const itemsToHide = existingItems.filter(
     (ei) => !items.find((i) => i.id === ei.id),
   );
   // Batch is used to improve performance by sending multiple requests in one HTTP call
   await recombeeClient.send(
-    new requests.Batch(itemsToDelete.map((i) => new requests.DeleteItem(i.id))),
+    new requests.Batch(itemsToHide.map((i) => new requests.SetItemValues(i.id, { hidden: true }))),
   );
-  if (itemsToDelete.length > 0) {
+  if (itemsToHide.length > 0) {
     console.log(
-      `Deleted ${itemsToDelete.length} items that are no longer present in the catalog.`,
+      `Hidden ${itemsToHide.length} items that are no longer present.`,
     );
   }
 
@@ -42,7 +42,7 @@ export async function uploadCatalog() {
         (i) =>
           new requests.SetItemValues(
             i.id,
-            { title: i.title },
+            { ...i, hidden: false },
             { cascadeCreate: true },
           ),
       ),
