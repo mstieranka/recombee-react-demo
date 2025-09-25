@@ -1,9 +1,11 @@
+# Recombee React Demo
+
 This is a [Next.js](https://nextjs.org) project showcasing Recombee recommendations / search in React.
 
 There are two ways to implement recommendations:
 
 1. Widget SDKs - Feed Widget automatically handles logic regarding next pages etc., Quick Search Widget allows showing search results before the user clicks Enter.
-2. Manual implementation - 
+2. Manual implementation - loading items is handled by a React hook that exposes the state and a callback to load the next page.
 
 It is also possible to combine the two approaches (e.g. use the Feed Widget, but keep the search input logic custom without using Quick Search).
 
