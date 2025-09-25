@@ -1,4 +1,5 @@
-@import "tailwindcss";
+@layer recombee-widgets, tailwind;
+@import "tailwindcss" layer(tailwind);
 
 :root {
   --background: #ffffff;
