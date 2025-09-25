@@ -21,6 +21,8 @@ export async function uploadCatalog() {
   );
 
   // Mark items that are no longer present in the catalog as hidden
+  // Note:  For this, you need to have a "hidden" boolean property defined in your item properties in the Admin UI.
+  //        You then need to set a global filter in the Admin UI to only show items where `'hidden' != true`.
   const existingItems = await recombeeClient.send(new requests.ListItems());
   const itemsToHide = existingItems.filter(
     (ei) => !items.find((i) => i.id === ei.id),
